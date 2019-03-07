@@ -133,6 +133,7 @@ int printID3frames(char * file, char checkVersion){
 	return 0;
 }
 
+//This function change *size engdianess
 int reverseBuf(unsigned char *size){
 	char tmp[4];
 
