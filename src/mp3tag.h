@@ -25,8 +25,5 @@ static struct option const long_opts[] = {
 		{ "album", required_argument, NULL, 'b' },
 		{ "year", required_argument, NULL, 'y' },
 		{ "track", required_argument, NULL, 'k' }
-
 };
-
-
 #endif /* MP3TAG_H_ */
