@@ -58,6 +58,11 @@ int main(int argc, char *argv[]) {
 	track_info track;
 	strcpy(track.TIT2, "");
 	strcpy(track.TPE1, "");
+	strcpy(track.TPE2, "");
+	strcpy(track.TALB, "");
+	strcpy(track.TYER, "");
+	strcpy(track.TRCK, "");
+
 
 	if (argc > 1) {
 		int c = 0;
@@ -87,6 +92,7 @@ int main(int argc, char *argv[]) {
 				break;
 			case 'a':
 				strcpy(track.TPE1, optarg);
+				strcpy(track.TPE2, optarg);
 				break;
 			case 'b':
 				strcpy(track.TALB, optarg);
@@ -130,7 +136,9 @@ int main(int argc, char *argv[]) {
 
 		token = strchr(inputFile, '-');
 		strcpy(track.TPE1, token + 2);
+		strcpy(track.TPE2, token + 2);
 		track.TPE1[strlen(track.TPE1) - 4] = 0x00;
+		track.TPE2[strlen(track.TPE2) - 4] = 0X00;
 
 		strncpy(track.TIT2, start, token - start);
 		track.TIT2[token - start - 1] = 0x00;

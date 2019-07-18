@@ -37,6 +37,7 @@ typedef struct {
 	char TPE1[100];	//Lead artist(s)/Lead performer(s)/Soloist(s)/Performing group
 	char TALB[100];	//Album/Movie/Show title
 	char TCON[100];	//Content type
+        char TPE2[100];
 }track_info;
 
 

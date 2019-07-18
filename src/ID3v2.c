@@ -190,6 +190,22 @@ int createFrame(char * frameBuffer, track_info * track){
 		totalSize += strlen(track->TPE1) + ID3v2_FRAME + ID3v2_ENCODING_SIZE;
 	}
 
+	if(strlen(track->TPE2)){
+//		printf("TPE1 = %s, lenght = %i\n", track->TPE2,strlen(track->TPE2));
+		memcpy(frame.ID,"TPE2",ID3v2_FRAMEID_LENGHT);
+
+		unsigned int size = strlen(track->TPE2) + ID3v2_ENCODING_SIZE;
+		memcpy(frame.size,&size,ID3v2_FRAME_SIZE);
+		reverseBuf(frame.size);
+
+		memcpy(frame.flags,"\00\00",ID3v2_FLAGS_SIZE);
+
+		memcpy(frameBuffer+totalSize, &frame, ID3v2_FRAME + ID3v2_ENCODING_SIZE);
+
+		memcpy(frameBuffer+ID3v2_FRAME + ID3v2_ENCODING_SIZE+totalSize, track->TPE2, strlen(track->TPE2));
+
+		totalSize += strlen(track->TPE2) + ID3v2_FRAME + ID3v2_ENCODING_SIZE;
+	}
 
 	if(strlen(track->TALB)){
 //		printf("TPE1 = %s, lenght = %i\n", track->TPE1,strlen(track->TPE1));
